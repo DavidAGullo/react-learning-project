@@ -18,6 +18,6 @@ function ExpenseItem(props) { //props is an object, props are the most important
 }
 
 function precise(x) {
-  return x.toFixed(2);
+  return x.toFixed(2); //returns a number with 2 decimal places (e.g. 250.64)
 }
 export default ExpenseItem;
