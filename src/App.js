@@ -26,5 +26,13 @@ In Theory,
       <Expense title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date} />
 is a solution but doesn't scale well.
 
+What react looks like without JSX:
+return React.createElement(
+  'div', {},      (the {} is the props object)
+  React.createElement(
+    'h2', {}, 'Let's get started!'), 
+  React.createElement(
+    'p', {}, 'This is also visible!'));
+  React.createElement(Expenses, {items: expenses});
 */
 export default App;
