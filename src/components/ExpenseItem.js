@@ -1,5 +1,6 @@
 //Functions can only have one return statement with one root element
 import ExpenseDate from './ExpenseDate';
+import Card from './Card';
 import './ExpenseItem.css'; //importing css file
 
 //We don't need these anymore because we are using the ExpenseItem props
@@ -10,13 +11,13 @@ const expenseAmount = precise(250.64);
 */
 function ExpenseItem(props) { //props is an object, props are the most important thing in React
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       <ExpenseDate date={props.date} /> 
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${precise(props.amount)}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 //ExpenseData in ExpenseItem.js has self closing tag because it is a component without any content
