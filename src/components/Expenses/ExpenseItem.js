@@ -1,6 +1,6 @@
 //Functions can only have one return statement with one root element
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+import Card from '../UI/Card';
 import './ExpenseItem.css'; //importing css file
 
 //We don't need these anymore because we are using the ExpenseItem props
