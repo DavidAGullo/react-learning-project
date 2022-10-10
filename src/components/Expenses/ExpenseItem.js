@@ -12,6 +12,8 @@ const expenseAmount = precise(250.64);
 */
 const ExpenseItem = (props) => { //props is an object, props are the most important thing in React
   const [title, setTitle] = useState(props.title); //this is a hook, it allows us to use state in functional components
+  //useState returns an array with 2 elements, the first element is the current state, the second element is a function that allows us to update the state
+  console.log('ExpenseItem evaluated by React');
 
   const clickHandler = () => {
     setTitle('Updated!');
