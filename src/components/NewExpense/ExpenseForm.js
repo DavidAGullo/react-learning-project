@@ -17,6 +17,7 @@ const ExpenseForm = () => {
 
 
     //Single State
+    // eslint-disable-next-line no-unused-vars
     const [userInput, setUserInput] = useState({
         enteredTitle: '',
         enteredAmount: '',
@@ -27,10 +28,14 @@ const ExpenseForm = () => {
     // onChange is a built in event listener
     // onChange is a function that is called when the input field is changed
 
+    //supress unused variable warning
+    
+
+
     // onChange is different from onClick because onClick is called when the button is clicked
     const titleChangeHandler = (event) => {
         setUserInput((prevState) => {
-            console.log(userInput);
+            //obj copy
             return {...prevState, enteredTitle: event.target.value};
             });
         //This just shows us the value of the input field
@@ -60,20 +65,37 @@ const ExpenseForm = () => {
         });
     */
 
+    const submitHandler = (event) => {
+        event.preventDefault(); //prevents the page from reloading when the form is submitted
+        const expenseData = {
+            title: userInput.enteredTitle,
+            amount: userInput.enteredAmount,
+            date: new Date(userInput.enteredDate)
+        }
+        console.log(expenseData);
+        setUserInput({
+            enteredTitle: '',
+            enteredAmount: '',
+            enteredDate: ''
+            });
+        //setUserInput.enteredAmount('');
+        //setUserInput.enteredDate('');
+    };
+        
     return (
-        <form>
+        <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
             <label>Title</label>
-            <input type="text" onChange={titleChangeHandler}/>
+            <input type="text" value={userInput.enteredTitle} onChange={titleChangeHandler}/>
             </div>
             <div className="new-expense__control">
             <label>Amount</label>
-            <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler} />
+            <input type="number" min="0.01" step="0.01" value={userInput.enteredAmount} onChange={amountChangeHandler} />
             </div>
             <div className="new-expense__control">
             <label>Date</label>
-            <input type="date" min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler} />
+            <input type="date" min="2019-01-01" max="2022-12-31" value={userInput.enteredDate} onChange={dateChangeHandler} />
             </div>
         </div>
         <div className="new-expense__actions">
