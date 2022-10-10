@@ -2,32 +2,54 @@ import React, {useState} from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
+    /* We No Longer Need This
     const [enteredTitle, setEnteredTitle] = useState(''); //this is a hook, it allows us to use state in functional components
     const [enteredAmount, setEnteredAmount] = useState(''); //this is a hook, it allows us to use state in functional components
     const [enteredDate, setEnteredDate] = useState(''); //this is a hook, it allows us to use state in functional components
+
+    Example of using multiple states
+    const titleChangeHandler = (event) => {
+        setEnteredTitle(event.target.value);
+    };
+
+    */
+
+
+
+    //Single State
+    const [userInput, setUserInput] = useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: ''
+    }); //this is a hook, it allows us to use state in functional components
+
     // onChange is an event listener that listens for changes in the input field
     // onChange is a built in event listener
     // onChange is a function that is called when the input field is changed
 
     // onChange is different from onClick because onClick is called when the button is clicked
     const titleChangeHandler = (event) => {
-        console.log(enteredTitle)
-        setEnteredTitle(event.target.value);
-        console.log("New: " + enteredTitle)
-
+        setUserInput({
+            ...userInput,
+            enteredTitle: event.target.value     
+        });
         //This just shows us the value of the input field
         /*console.log("Title Changed!");
         console.log(event.target.value); //event.target.value is the value of the input field */
     };
     // These are seperate States individually
     const amountChangeHandler = (event) => {
-        console.log(enteredAmount)
-        setEnteredAmount(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredAmount: event.target.value
+        });
     };
     //This just shows us the value of the input field
     const dateChangeHandler = (event) => {
-        console.log(enteredDate)
-        setEnteredDate(event.target.value);
+        setUserInput({
+            ...userInput,
+            enteredDate: event.target.value
+        });
     };
 
 
