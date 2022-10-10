@@ -10,6 +10,9 @@ const expenseTitle = 'Car Insurance';
 const expenseAmount = precise(250.64);
 */
 function ExpenseItem(props) { //props is an object, props are the most important thing in React
+  const clickHandler = () => {
+    console.log('Clicked!');
+  }; //this is a function that is called when the button is clicked
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} /> 
@@ -17,6 +20,7 @@ function ExpenseItem(props) { //props is an object, props are the most important
         <h2>{props.title}</h2>
         <div className="expense-item__price">${precise(props.amount)}</div>
       </div>
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 }
