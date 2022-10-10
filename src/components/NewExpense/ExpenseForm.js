@@ -29,29 +29,36 @@ const ExpenseForm = () => {
 
     // onChange is different from onClick because onClick is called when the button is clicked
     const titleChangeHandler = (event) => {
-        setUserInput({
-            ...userInput,
-            enteredTitle: event.target.value     
-        });
+        setUserInput((prevState) => {
+            console.log(userInput);
+            return {...prevState, enteredTitle: event.target.value};
+            });
         //This just shows us the value of the input field
         /*console.log("Title Changed!");
         console.log(event.target.value); //event.target.value is the value of the input field */
     };
     // These are seperate States individually
     const amountChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return {...prevState, enteredAmount: event.target.value};
+            }
+        );
+    };
+    //This just shows us the value of the input field
+    const dateChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return {...prevState, enteredDate: event.target.value};
+            }
+        );
+    };
+
+    //Not good version of the above code
+    /*
         setUserInput({
             ...userInput,
             enteredAmount: event.target.value
         });
-    };
-    //This just shows us the value of the input field
-    const dateChangeHandler = (event) => {
-        setUserInput({
-            ...userInput,
-            enteredDate: event.target.value
-        });
-    };
-
+    */
 
     return (
         <form>
