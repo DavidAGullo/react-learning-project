@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     /* We No Longer Need This
     const [enteredTitle, setEnteredTitle] = useState(''); //this is a hook, it allows us to use state in functional components
     const [enteredAmount, setEnteredAmount] = useState(''); //this is a hook, it allows us to use state in functional components
@@ -72,7 +72,8 @@ const ExpenseForm = () => {
             amount: userInput.enteredAmount,
             date: new Date(userInput.enteredDate)
         }
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData); //this is a function that is called when the form is submitted (Child to Parent Component Communication)
+        //console.log(expenseData);
         setUserInput({
             enteredTitle: '',
             enteredAmount: '',
