@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-
 import './ExpenseFilter.css';
 
 const ExpensesFilter = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const [enteredYear, setEnteredYear] = useState('');
+  //const [enteredYear, setEnteredYear] = useState('2020');
   const dropdownChangeHandler = (event) => {
-    setEnteredYear(event.target.value);
+    //setEnteredYear(event.target.value);
     props.onFilterChange(event.target.value);
   };
 
@@ -14,7 +12,7 @@ const ExpensesFilter = (props) => {
     <div className='expenses-filter'>
       <div className='expenses-filter__control'>
         <label>Filter by year</label>
-        <select value={props.select} onChange={dropdownChangeHandler}>
+        <select value={props.selected} onChange={dropdownChangeHandler}>
           <option value='2022'>2022</option>
           <option value='2021'>2021</option>
           <option value='2020'>2020</option>
