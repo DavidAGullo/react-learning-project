@@ -82,7 +82,11 @@ const ExpenseForm = (props) => {
         //setUserInput.enteredAmount('');
         //setUserInput.enteredDate('');
     };
-        
+    const cancelHandler = (event) => {
+        event.preventDefault(); //prevents the page from reloading when the form is submitted
+        props.onCancel(); //this is a function that is called when the form is submitted (Child to Parent Component Communication)
+    };
+
     return (
         <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
@@ -100,6 +104,7 @@ const ExpenseForm = (props) => {
             </div>
         </div>
         <div className="new-expense__actions">
+            <button type="button" onClick={cancelHandler}>Cancel</button>
             <button type="submit">Add Expense</button>
         </div>
         </form>

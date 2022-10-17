@@ -10,10 +10,24 @@ const NewExpense = (props) => {
         };
         //console.log(expenseData);
         props.onAddExpense(expenseData);
+        setShowForm(false);
+    };
+    //Show state
+    const [showForm, setShowForm] = React.useState(false);
+    const showFormHandler = () => {
+        setShowForm(true);
+    };
+    const hideFormHandler = () => {
+        setShowForm(false);
     };
 
-    return <div className="new-expense">
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-    </div>
+
+    return (
+        <div className="new-expense">
+            {showForm && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={hideFormHandler} />}
+            {!showForm && <button onClick={showFormHandler}>Add New Expense</button>}
+        </div>
+    );
 };
+
 export default NewExpense;
