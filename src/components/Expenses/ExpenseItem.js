@@ -10,6 +10,7 @@ const expenseDate = new Date(2021, 2, 28); //month is 0 based
 const expenseTitle = 'Car Insurance';
 const expenseAmount = precise(250.64);
 */
+
 const ExpenseItem = (props) => { //props is an object, props are the most important thing in React
   return (
     <Card className="expense-item">
