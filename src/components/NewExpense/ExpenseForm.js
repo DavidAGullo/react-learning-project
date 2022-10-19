@@ -51,6 +51,7 @@ const ExpenseForm = (props) => {
     };
     //This just shows us the value of the input field
     const dateChangeHandler = (event) => {
+        //Set the date state
         setUserInput((prevState) => {
             return {...prevState, enteredDate: event.target.value};
             }
@@ -69,7 +70,7 @@ const ExpenseForm = (props) => {
         event.preventDefault(); //prevents the page from reloading when the form is submitted
         const expenseData = {
             title: userInput.enteredTitle,
-            amount: userInput.enteredAmount,
+            amount: +userInput.enteredAmount,
             date: new Date(userInput.enteredDate)
         }
         props.onSaveExpenseData(expenseData); //this is a function that is called when the form is submitted (Child to Parent Component Communication)
